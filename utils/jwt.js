@@ -18,7 +18,7 @@ const attachCookiesToResponse = ({ res, user }) => {
     expires: new Date(Date.now() + oneDay),
     secure: process.env.NODE_ENV === 'production', // يعمل فقط مع HTTPS في production
     signed: true,
-    sameSite: 'lax', // إضافة سمة SameSite=Lax
+    sameSite: 'none', // إضافة سمة SameSite=Lax
   });
 };
 

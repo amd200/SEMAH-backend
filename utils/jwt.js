@@ -18,7 +18,7 @@ res.cookie('token', token, {
   expires: new Date(Date.now() + oneDay),
   secure: process.env.NODE_ENV === 'production',
   signed: true,
-  sameSite: 'lax', // يسمح بإرسال الكوكي في طلبات التنقل بين الصفحات
+  
 });
 };
 

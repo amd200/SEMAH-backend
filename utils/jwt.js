@@ -13,13 +13,13 @@ const attachCookiesToResponse = ({ res, user }) => {
   const token = createJWT({ payload: user });
   const oneDay = 1000 * 60 * 60 * 24;
 
-  res.cookie('token', token, {
-    httpOnly: true,
-    expires: new Date(Date.now() + oneDay),
-    secure: process.env.NODE_ENV === 'production', // يعمل فقط مع HTTPS في production
-    signed: true,
-   sameSite: "strict",
-  });
+res.cookie('token', token, {
+  httpOnly: true,
+  expires: new Date(Date.now() + oneDay),
+  secure: process.env.NODE_ENV === 'production',
+  signed: true,
+  sameSite: 'lax', // يسمح بإرسال الكوكي في طلبات التنقل بين الصفحات
+});
 };
 
 export { createJWT, isTokenValid, attachCookiesToResponse };
